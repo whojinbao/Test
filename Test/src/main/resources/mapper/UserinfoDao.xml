@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.zf.UserinfoDao">
+   <select id="getUsers" resultType="com.entity.Userinfo">
+		select user_id,user_tel,user_password from Userinfo 
+	</select>
+	<insert id="addUser" parameterType="com.entity.Userinfo">
+	    insert into Userinfo(user_id,user_tel,user_password) values(#{userId},#{userName},#{userPassword})
+	</insert>
+	 <select id="queryUserinfo" resultType="com.entity.Userinfo" parameterType="String" >
+		select user_id,user_tel,user_password from Userinfo where user_id = #{userId}
+	</select>
+</mapper>

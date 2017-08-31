@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.zf.PersoninfoDao">
+   <select id="selectPerson" resultType="com.entity.Personinfo" parameterType="String">
+		select user_id,z_name,sex,telephone,address,ID_cardnum,ID_cardurl,photo_url,schphoto_url,
+		stu_num,stu_photo,sch_name,sch_address,credit from personinfo where user_id = #{userId}
+	
+	</select>
+	<insert id="addPersoninfo" parameterType="com.entity.Personinfo">
+	    insert into personinfo(user_id,z_name,sex,telephone,address,ID_cardnum,ID_cardurl,photo_url,schphoto_url,
+		stu_num,stu_photo,sch_name,sch_address,credit) values(#{userId},#{zName},#{sex},#{tel},#{address},#{idCardnum},#{idCardurl},#{photoUrl},#{schphotoUrl},
+		#{stuNum},#{stuPhoto},#{schName},#{schAddress},#{credit})
+	</insert>
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.zf.OpenitemDao">
+   <select id="getOpenitems" resultType="com.entity.Openitem">
+		select item_id,item_name,item_intro,user_id,item_money,item_status,starttime,endtime from openitem 
+	</select>
+	<insert id="addOpenitem" parameterType="com.entity.Openitem">
+	    insert into openitem(item_id,item_name,item_intro,user_id,item_money,item_status,starttime,endtime) 
+	    values(#{itemId},#{itemName},#{itemIntro},#{userId},#{itemMoney},#{itemStatus},#{starttime},#{endtime})
+	</insert>
+	 <select id="quertOpenitem" resultType="com.entity.Openitem" parameterType="String" >
+		select item_id,item_name,item_intro,user_id,item_money,item_status,starttime,endtime from openitem 
+		where item_id = #{itemId}
+	</select>
+</mapper>
